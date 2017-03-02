@@ -152,10 +152,10 @@ public class TokenGenerationServiceImpl implements TokenGenerationService {
 
 
     /**
-     * invoke the symmetric cipher to encrypt secret
-     * @param t the secret subtype
-     * @param <T>
-     * @return
+     * Invoke the symmetric cipher to encrypt secret
+     * @param t the secret subtype to encrypt
+     * @param <T> the secret subtype to encrypt
+     * @return the subtype
      */
     protected <T> String convertToJsonAndEncrypt(T t) {
         try {

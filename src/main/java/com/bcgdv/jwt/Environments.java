@@ -46,7 +46,7 @@ public enum Environments {
 
     /**
      * Represent me as simple String.
-     * @return
+     * @return as String
      */
     @Override
     public String toString() {

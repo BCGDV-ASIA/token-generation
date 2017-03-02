@@ -19,16 +19,16 @@ public abstract class BaseJwtToken implements Serializable {
     protected Long dateCreated = new Date().getTime();
 
     /**
-     * get expiry time
-     * @return
+     * get expiry time in milliseconds
+     * @return as Long
      */
     public Long getExpiryInMilliSeconds() {
         return expiryInMilliSeconds;
     }
 
     /**
-     * set expiry time
-     * @param expiryInMilliSeconds the expiry time
+     * set expiry time in milliseconds
+     * @param expiryInMilliSeconds as Long
      */
     public void setExpiryInMilliSeconds(Long expiryInMilliSeconds) {
         this.expiryInMilliSeconds = expiryInMilliSeconds;

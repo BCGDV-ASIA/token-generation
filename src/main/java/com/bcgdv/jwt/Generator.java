@@ -78,7 +78,7 @@ public class Generator {
 
     /**
      * Format a client token.
-     * @return
+     * @return as String
      */
     public String formatClientToken() {
         return String.format(JSON_TOKEN,

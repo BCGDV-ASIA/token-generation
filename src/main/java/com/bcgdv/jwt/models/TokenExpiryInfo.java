@@ -26,9 +26,9 @@ public final class TokenExpiryInfo implements Serializable {
 
     /**
      * Pass in expiry values as Integers instead
-     * @param clientTokenExpiryInMillis
-     * @param sessionTokenExpiryInMillis
-     * @param serverTokenExpiryInMillis
+     * @param clientTokenExpiryInMillis as Integer
+     * @param sessionTokenExpiryInMillis as Integer
+     * @param serverTokenExpiryInMillis as Integer
      */
     public TokenExpiryInfo(final Integer clientTokenExpiryInMillis,
                            final Integer sessionTokenExpiryInMillis,

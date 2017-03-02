@@ -41,8 +41,8 @@ public class JwtManager {
     protected ObjectMapper objectMapper;
 
     /**
-     * Build using Guice
-     * @param asymmetricKeyInfo
+     * Build using Guice with keys
+     * @param asymmetricKeyInfo as @AsymmetricKeyInfo
      */
     @Inject
     public JwtManager(@Named("jwtKeyInfo") AsymmetricKeyInfo asymmetricKeyInfo) {

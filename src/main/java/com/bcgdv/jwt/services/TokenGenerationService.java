@@ -1,6 +1,7 @@
 package com.bcgdv.jwt.services;
 
 import com.bcgdv.jwt.models.TokenExpiryInfo;
+import com.simonmittag.cryptoutils.symmetric.SimpleSymmetricCipher;
 
 import java.util.Map;
 
@@ -32,9 +33,24 @@ public interface TokenGenerationService {
      */
     String generateServerToken(Map<String, String> assertions);
 
+
     /**
      * Fetch the @TokenExpiryInfo
      * @return the TokenExpiryInfo
      */
     TokenExpiryInfo getTokenExpiryInfo();
+
+
+    /**
+     * Fetch the @SimpleSymmetricCipher
+     * @return the SimpleSymmetricCipher
+     */
+    SimpleSymmetricCipher getSimpleSymmetricCipher();
+
+
+    /**
+     * Get the @JwtManger
+     * @return the JwtManager
+     */
+    JwtManager getJwtManager();
 }

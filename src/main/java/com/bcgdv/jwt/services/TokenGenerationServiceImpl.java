@@ -17,10 +17,24 @@ import java.util.Map;
 @Singleton
 public class TokenGenerationServiceImpl implements TokenGenerationService {
 
-
+    /**
+     * Has a @SimpleSymmetricCipher to encrypt token payload
+     */
     protected SimpleSymmetricCipher simpleSymmetricCipher;
+
+    /**
+     * Has a JwtManager to sign, verify and encode tokens
+     */
     protected JwtManager jwtManager;
+
+    /**
+     * Has a TokenExpiryInfo for timestamps
+     */
     protected TokenExpiryInfo tokenExpiryInfo;
+
+    /**
+     * Has an ObjectMapper for JSON de/serialisation
+     */
     protected ObjectMapper objectMapper;
 
     /**
@@ -73,6 +87,24 @@ public class TokenGenerationServiceImpl implements TokenGenerationService {
     @Override
     public TokenExpiryInfo getTokenExpiryInfo() {
         return this.tokenExpiryInfo;
+    }
+
+    /**
+     * Fetch the @SimpleSymmetricCipher
+     * @return the SimpleSymmetricCipher
+     */
+    @Override
+    public SimpleSymmetricCipher getSimpleSymmetricCipher() {
+        return this.simpleSymmetricCipher;
+    }
+
+    /**
+     * Fetch the @JwtManager
+     * @return the @JwtManager
+     */
+    @Override
+    public JwtManager getJwtManager() {
+        return this.jwtManager;
     }
 
     /**

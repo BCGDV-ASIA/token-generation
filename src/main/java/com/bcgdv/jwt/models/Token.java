@@ -57,6 +57,10 @@ public class Token {
 
         protected String name;
 
+        public String expiry() {
+            return this.name +   "_TOKEN_EXPIRY";
+        }
+
         @Override
         public String toString() {
             return this.name;

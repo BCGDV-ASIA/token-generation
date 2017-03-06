@@ -9,9 +9,19 @@ package com.bcgdv.jwt.models;
 public class Token {
 
     /**
+     * Number of parts in the token (header, payload, signature)
+     */
+    public static final int LENGTH = 3;
+
+    /**
      * Token expiry in seconds (default)
      */
-    public static int DEFAULT_TOKEN_EXPIRY_SECONDS = 60;
+    public static int DEFAULT_EXPIRY_SECONDS = 60;
+
+    /**
+     * Token expiry in seconds (default)
+     */
+    public static int EXPIRY_NEVER = -1;
 
     /**
      * Token property for date created
@@ -26,7 +36,7 @@ public class Token {
     /**
      * Token property for secret
      */
-    public static final String SECRET = "secret";
+    public static final String SECRET_FIELD = "secret";
 
     /**
      * We can validate these Token Types. (duplicated on purpose from token-generation to avoid dep)

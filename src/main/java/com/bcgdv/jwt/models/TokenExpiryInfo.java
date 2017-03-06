@@ -5,22 +5,20 @@ import com.google.common.base.MoreObjects;
 import java.io.Serializable;
 
 /**
- * Set Token Expiry by @Tokentype
+ * Set Token Expiry by @Token.Type
  */
 public final class TokenExpiryInfo implements Serializable {
     protected Integer sessionTokenExpiryInMillis;
     protected Integer serverTokenExpiryInMillis;
     protected Integer clientTokenExpiryInMillis;
 
-    public static final Integer NEVER_EXPIRE = -1;
-
     /**
      * Defaults to never expire, but don't use this in production.
      */
     public TokenExpiryInfo() {
-        this.sessionTokenExpiryInMillis = NEVER_EXPIRE;
-        this.serverTokenExpiryInMillis = NEVER_EXPIRE;
-        this.clientTokenExpiryInMillis = NEVER_EXPIRE;
+        this.sessionTokenExpiryInMillis = Token.EXPIRY_NEVER;
+        this.serverTokenExpiryInMillis = Token.EXPIRY_NEVER;
+        this.clientTokenExpiryInMillis = Token.EXPIRY_NEVER;
     }
 
     /**

@@ -14,6 +14,6 @@ public class SessionSecret extends Secret implements Serializable {
      */
     public SessionSecret(Map<String, String> assertions) {
         super(assertions);
-        this.tokenType=TokenType.SESSION;
+        this.tokenType= Token.Type.SESSION;
     }
 }

@@ -59,7 +59,7 @@ public class TokenGenerationServiceImpl implements TokenGenerationService {
      * @return the JWT server token
      */
     public String generateServerToken(Map<String, String> assertions) {
-        return this.generateToken(TokenType.SERVER, assertions.get(Params.CONTEXT.toString()), assertions);
+        return this.generateToken(Token.Type.SERVER, assertions.get(Params.CONTEXT.toString()), assertions);
     }
 
     /**
@@ -68,7 +68,7 @@ public class TokenGenerationServiceImpl implements TokenGenerationService {
      * @return the JWT session token
      */
     public String generateSessionToken(Map<String, String> assertions) {
-        return this.generateToken(TokenType.SESSION, assertions.get(Params.CONTEXT.toString()), assertions);
+        return this.generateToken(Token.Type.SESSION, assertions.get(Params.CONTEXT.toString()), assertions);
     }
 
     /**
@@ -77,7 +77,7 @@ public class TokenGenerationServiceImpl implements TokenGenerationService {
      * @return the JWT client token
      */
     public String generateClientToken(Map<String, String> assertions) {
-        return this.generateToken(TokenType.CLIENT, assertions.get(Params.CONTEXT.toString()), assertions);
+        return this.generateToken(Token.Type.CLIENT, assertions.get(Params.CONTEXT.toString()), assertions);
     }
 
     /**
@@ -114,7 +114,7 @@ public class TokenGenerationServiceImpl implements TokenGenerationService {
      * @param assertions the token's secret
      * @return the JWT token
      */
-    protected String generateToken(TokenType type, String context, Map<String, String> assertions) {
+    protected String generateToken(Token.Type type, String context, Map<String, String> assertions) {
         Preconditions.checkNotNull(context, "context cannot be null");
         Preconditions.checkNotNull(assertions, "secret cannot be null");
         assertions.put(Params.CONTEXT.toString(), context);
@@ -137,7 +137,7 @@ public class TokenGenerationServiceImpl implements TokenGenerationService {
      * @param assertions the secret
      * @return the typed Secret
      */
-    protected Secret encapsulateSecret(TokenType type, Map<String, String> assertions) {
+    protected Secret encapsulateSecret(Token.Type type, Map<String, String> assertions) {
         switch(type) {
             case SESSION:
                 return new SessionSecret(assertions);

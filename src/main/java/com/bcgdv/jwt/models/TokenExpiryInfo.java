@@ -1,7 +1,6 @@
 package com.bcgdv.jwt.models;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Optional;
 
 import java.io.Serializable;
 
@@ -69,7 +68,7 @@ public final class TokenExpiryInfo implements Serializable {
      * @param type the tokenType
      * @return as Integer
      */
-    public Integer getTokenTypeTimeoutInMillis(TokenType type) {
+    public Integer getTokenTypeTimeoutInMillis(Token.Type type) {
         switch(type) {
             case SESSION:
                 return getSessionTokenExpiryInMillis();

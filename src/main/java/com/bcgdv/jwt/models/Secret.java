@@ -17,7 +17,7 @@ public abstract class Secret {
     /**
      * Has a token type
      */
-    protected TokenType tokenType;
+    protected Token.Type tokenType;
 
     /**
      * Has a map of assertions, as Strings for JSON safety
@@ -62,7 +62,7 @@ public abstract class Secret {
      * Get the token type
      * @return as TokenType enum
      */
-    public TokenType getTokenType() {
+    public Token.Type getTokenType() {
         return this.tokenType;
     }
 

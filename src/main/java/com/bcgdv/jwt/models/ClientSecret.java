@@ -14,6 +14,6 @@ public class ClientSecret extends Secret implements Serializable {
      */
     public ClientSecret(Map<String, String> assertions) {
         super(assertions);
-        this.tokenType=TokenType.CLIENT;
+        this.tokenType = Token.Type.CLIENT;
     }
 }

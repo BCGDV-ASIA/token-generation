@@ -3,8 +3,8 @@
  */
 package com.bcgdv.jwt;
 
+import com.bcgdv.jwt.models.Token;
 import com.bcgdv.jwt.models.TokenExpiryInfo;
-import com.bcgdv.jwt.models.TokenType;
 import com.bcgdv.jwt.providers.AsymmetricSecurityKeyProvider;
 import com.bcgdv.jwt.providers.SymmetricCipherProvider;
 import com.bcgdv.jwt.services.JwtManager;
@@ -61,7 +61,7 @@ public class Generator {
 
         Generator generator = new Generator(config);
 
-        switch (TokenType.valueOf(config.get(Params.TYPE.toString()))) {
+        switch (Token.Type.valueOf(config.get(Params.TYPE.toString()))) {
             case CLIENT:
                 System.out.println(generator.formatClientToken());
                 break;
@@ -82,7 +82,7 @@ public class Generator {
      */
     public String formatClientToken() {
         return String.format(JSON_TOKEN,
-                TokenType.CLIENT.toString(),
+                Token.Type.CLIENT.toString(),
                 config.get(Params.CONTEXT.toString()),
                 config.get(Params.ENV.toString()),
                 tokenGenerationService.getTokenExpiryInfo().getClientTokenExpiryInMillis().toString(),
@@ -95,7 +95,7 @@ public class Generator {
      */
     public String formatSessionToken() {
         return String.format(JSON_TOKEN,
-                TokenType.SESSION.toString(),
+                Token.Type.SESSION.toString(),
                 config.get(Params.CONTEXT.toString()),
                 config.get(Params.ENV.toString()),
                 tokenGenerationService.getTokenExpiryInfo().getSessionTokenExpiryInMillis().toString(),
@@ -108,7 +108,7 @@ public class Generator {
      */
     public String formatServerToken() {
         return String.format(JSON_TOKEN,
-                TokenType.SERVER.toString(),
+                Token.Type.SERVER.toString(),
                 config.get(Params.CONTEXT.toString()),
                 config.get(Params.ENV.toString()),
                 tokenGenerationService.getTokenExpiryInfo().getServerTokenExpiryInMillis().toString(),
@@ -125,7 +125,7 @@ public class Generator {
             usageExit();
         } else {
             try {
-                TokenType.valueOf(args[0].toUpperCase());
+                Token.Type.valueOf(args[0].toUpperCase());
             } catch (Exception e) {
                 usageExit();
             }

@@ -6,8 +6,8 @@ package com.bcgdv.jwt.services;
 import com.bcgdv.jwt.Keys;
 import com.bcgdv.jwt.Params;
 import com.bcgdv.jwt.models.DefaultToken;
+import com.bcgdv.jwt.models.Token;
 import com.bcgdv.jwt.models.TokenExpiryInfo;
-import com.bcgdv.jwt.models.TokenType;
 import com.bcgdv.jwt.providers.AsymmetricSecurityKeyProvider;
 import com.bcgdv.jwt.providers.SymmetricCipherProvider;
 import com.google.common.collect.ImmutableMap;
@@ -111,7 +111,7 @@ public class TokenGenerationTest {
         assertEquals((long) expiry().getClientTokenExpiryInMillis(), (long) token.getExpiryInMilliSeconds());
         String contents = cipher().decrypt(token.getEncryptedSecret());
         assertTrue(contents.contains(customerId));
-        assertTrue(contents.contains(TokenType.CLIENT.toString()));
+        assertTrue(contents.contains(Token.Type.CLIENT.toString()));
     }
 
     /**
@@ -135,7 +135,7 @@ public class TokenGenerationTest {
         String contents = cipher().decrypt(token.getEncryptedSecret());
         assertTrue(contents.contains(customerId));
         assertTrue(contents.contains(msIsdn));
-        assertTrue(contents.contains(TokenType.CLIENT.toString()));
+        assertTrue(contents.contains(Token.Type.CLIENT.toString()));
     }
 
     /**
@@ -155,7 +155,7 @@ public class TokenGenerationTest {
         assertEquals((long) expiry().getSessionTokenExpiryInMillis(), (long) token.getExpiryInMilliSeconds());
         String contents = cipher().decrypt(token.getEncryptedSecret());
         assertTrue(contents.contains(customerId));
-        assertTrue(contents.contains(TokenType.SESSION.toString()));
+        assertTrue(contents.contains(Token.Type.SESSION.toString()));
     }
 
     /**
@@ -178,7 +178,7 @@ public class TokenGenerationTest {
         assertEquals((long) expiry().getSessionTokenExpiryInMillis(), (long) token.getExpiryInMilliSeconds());
         String contents = cipher().decrypt(token.getEncryptedSecret());
         assertTrue(contents.contains(customerId));
-        assertTrue(contents.contains(TokenType.SESSION.toString()));
+        assertTrue(contents.contains(Token.Type.SESSION.toString()));
         assertTrue(contents.contains(msIsdn));
 
     }
@@ -199,7 +199,7 @@ public class TokenGenerationTest {
         assertEquals((long) expiry().getServerTokenExpiryInMillis(), (long) extracted.getExpiryInMilliSeconds());
         String contents = cipher().decrypt(extracted.getEncryptedSecret());
         assertTrue(contents.contains(context));
-        assertTrue(contents.contains(TokenType.SERVER.toString()));
+        assertTrue(contents.contains(Token.Type.SERVER.toString()));
     }
 
     /**

@@ -14,6 +14,6 @@ public class ServerSecret extends Secret implements Serializable {
      */
     public ServerSecret(Map<String, String> assertions) {
         super(assertions);
-        this.tokenType=TokenType.SERVER;
+        this.tokenType= Token.Type.SERVER;
     }
 }

@@ -4,7 +4,7 @@
 package com.bcgdv.jwt.models;
 
 /**
- * @author Simon Mittag
+ * Token constants
  */
 public class Token {
 
@@ -25,31 +25,6 @@ public class Token {
      * Token expiry in seconds (default)
      */
     public static int EXPIRY_NEVER = -1;
-
-
-    /**
-     * Token property for date created
-     */
-    public static final String DATE_CREATED = "dateCreated";
-
-
-    /**
-     * Token property for expiry in milliseconds
-     */
-    public static final String EXPIRY_TIME_IN_MILLS_FIELD = "expiryInMilliSeconds";
-
-
-    /**
-     * Token field name for encrypted secret
-     */
-    public static final String SECRET_FIELD = "secret";
-
-
-    /**
-     * Token field name for context
-     */
-    public static final String CONTEXT_FIELD = "context";
-
 
     /**
      * We can validate these Token Types. (duplicated on purpose from token-generation to avoid dep)
@@ -77,6 +52,40 @@ public class Token {
         @Override
         public String toString() {
             return this.name;
+        }
+    }
+
+    /**
+     * @author Simon Mittag
+     */
+    public static enum Fields {
+
+        dateCreated("dateCreated"),
+        expiryInMilliSeconds("expiryInMilliSeconds"),
+        secret("secret"),
+        tokenType("tokenType"),
+        context("context");
+
+        /**
+         * has a name
+         */
+        protected String name;
+
+        /**
+         * Build with name
+         * @param name as String
+         */
+        Fields(String name) {
+            this.name=name;
+        }
+
+        /**
+         * Print with name
+         * @return as String
+         */
+        @Override
+        public String toString() {
+            return name();
         }
     }
 }

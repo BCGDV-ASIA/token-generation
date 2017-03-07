@@ -36,7 +36,7 @@ public enum Params {
     protected String name;
 
     /**
-     * Buidl with name
+     * Build with name
      * @param name as String
      */
     Params(String name) {

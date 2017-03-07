@@ -16,11 +16,13 @@ import static com.simonmittag.cryptoutils.PropertyHelper.getEnvOrProperty;
  */
 public class SymmetricCipherProvider implements Provider<SimpleSymmetricCipher> {
 
+
     /**
      * Error messages
      */
     protected static final String SYMMETRIC_KEY_ERROR = "Symmetric key should be set as environment variable or system property: " + SYMMETRIC_SECRET_KEY.toString();
     protected static final String INIT_VECTOR_ERROR = "Init vector key should be set as environment variable or system property: " + INIT_VECTOR.toString();
+
 
     /**
      * Build symmetric cipher from System properties, initialize and return.
@@ -29,8 +31,13 @@ public class SymmetricCipherProvider implements Provider<SimpleSymmetricCipher> 
     @Override
     public SimpleSymmetricCipher get() {
         SymmetricKeyAESCipher symmetricKeyAESCipher = new SymmetricKeyAESCipher();
-        symmetricKeyAESCipher.setKey(Preconditions.checkNotNull(getEnvOrProperty(SYMMETRIC_SECRET_KEY.toString()), SYMMETRIC_KEY_ERROR));
-        symmetricKeyAESCipher.setInitVector(Preconditions.checkNotNull(getEnvOrProperty(INIT_VECTOR.toString()), INIT_VECTOR_ERROR));
+        symmetricKeyAESCipher.setKey(
+                Preconditions.checkNotNull(
+                        getEnvOrProperty(
+                                SYMMETRIC_SECRET_KEY.toString()), SYMMETRIC_KEY_ERROR));
+        symmetricKeyAESCipher.setInitVector(
+                Preconditions.checkNotNull(
+                        getEnvOrProperty(INIT_VECTOR.toString()), INIT_VECTOR_ERROR));
         return symmetricKeyAESCipher;
     }
 }

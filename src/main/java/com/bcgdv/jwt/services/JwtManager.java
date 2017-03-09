@@ -45,7 +45,7 @@ public class JwtManager {
      * @param asymmetricKeyInfo as @AsymmetricKeyInfo
      */
     @Inject
-    public JwtManager(@Named("jwtKeyInfo") AsymmetricKeyInfo asymmetricKeyInfo) {
+    public JwtManager(AsymmetricKeyInfo asymmetricKeyInfo) {
         this.asymmetricKeyInfo = asymmetricKeyInfo;
         this.objectMapper = new ObjectMapper();
     }

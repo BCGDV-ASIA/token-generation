@@ -8,7 +8,7 @@ public class DefaultToken extends BaseJwtToken {
     /**
      * The encrypted secret, including assertions
      */
-    protected String encryptedSecret;
+    protected String secret;
 
     /**
      * Not used but needed
@@ -18,11 +18,11 @@ public class DefaultToken extends BaseJwtToken {
 
     /**
      * Create using this constructor.
-     * @param encryptedSecret the encrypted secret.
+     * @param secret the encrypted secret.
      * @param expiryTimeInMillis the expiry time.
      */
-    public DefaultToken(String encryptedSecret, Long expiryTimeInMillis) {
-        this.encryptedSecret = encryptedSecret;
+    public DefaultToken(String secret, Long expiryTimeInMillis) {
+        this.secret = secret;
         this.setExpiryInMilliSeconds(expiryTimeInMillis);
     }
 
@@ -30,7 +30,7 @@ public class DefaultToken extends BaseJwtToken {
      * The encrypted secret
      * @return as String (URL friendly)
      */
-    public String getEncryptedSecret() {
-        return encryptedSecret;
+    public String getSecret() {
+        return secret;
     }
 }

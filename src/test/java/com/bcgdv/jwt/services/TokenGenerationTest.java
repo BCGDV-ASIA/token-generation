@@ -109,7 +109,7 @@ public class TokenGenerationTest {
                                 "123456")));
         DefaultToken token = jwt().extractJwtPayload(clientToken, DefaultToken.class);
         assertEquals((long) expiry().getClientTokenExpiryInMillis(), (long) token.getExpiryInMilliSeconds());
-        String contents = cipher().decrypt(token.getEncryptedSecret());
+        String contents = cipher().decrypt(token.getSecret());
         assertTrue(contents.contains(customerId));
         assertTrue(contents.contains(Token.Type.CLIENT.toString()));
     }
@@ -132,7 +132,7 @@ public class TokenGenerationTest {
                                 msIsdn)));
         DefaultToken token = jwt().extractJwtPayload(clientToken, DefaultToken.class);
         assertEquals((long) expiry().getClientTokenExpiryInMillis(), (long) token.getExpiryInMilliSeconds());
-        String contents = cipher().decrypt(token.getEncryptedSecret());
+        String contents = cipher().decrypt(token.getSecret());
         assertTrue(contents.contains(customerId));
         assertTrue(contents.contains(msIsdn));
         assertTrue(contents.contains(Token.Type.CLIENT.toString()));
@@ -153,7 +153,7 @@ public class TokenGenerationTest {
                                 "123456")));
         DefaultToken token = jwt().extractJwtPayload(sessionToken, DefaultToken.class);
         assertEquals((long) expiry().getSessionTokenExpiryInMillis(), (long) token.getExpiryInMilliSeconds());
-        String contents = cipher().decrypt(token.getEncryptedSecret());
+        String contents = cipher().decrypt(token.getSecret());
         assertTrue(contents.contains(customerId));
         assertTrue(contents.contains(Token.Type.SESSION.toString()));
     }
@@ -176,7 +176,7 @@ public class TokenGenerationTest {
                                 msIsdn)));
         DefaultToken token = jwt().extractJwtPayload(sessionToken, DefaultToken.class);
         assertEquals((long) expiry().getSessionTokenExpiryInMillis(), (long) token.getExpiryInMilliSeconds());
-        String contents = cipher().decrypt(token.getEncryptedSecret());
+        String contents = cipher().decrypt(token.getSecret());
         assertTrue(contents.contains(customerId));
         assertTrue(contents.contains(Token.Type.SESSION.toString()));
         assertTrue(contents.contains(msIsdn));
@@ -197,7 +197,7 @@ public class TokenGenerationTest {
         DefaultToken extracted = jwt().extractJwtPayload(serverToken, DefaultToken.class);
 
         assertEquals((long) expiry().getServerTokenExpiryInMillis(), (long) extracted.getExpiryInMilliSeconds());
-        String contents = cipher().decrypt(extracted.getEncryptedSecret());
+        String contents = cipher().decrypt(extracted.getSecret());
         assertTrue(contents.contains(context));
         assertTrue(contents.contains(Token.Type.SERVER.toString()));
     }

@@ -6,6 +6,7 @@
     <packaging>jar</packaging>
     <version>1.0</version>
     <name>token-generation</name>
+    <description>JWT token generation with encrypted payloads and CLI</description>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>

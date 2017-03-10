@@ -12,6 +12,7 @@ import com.bcgdv.jwt.services.TokenGenerationService;
 import com.bcgdv.jwt.services.TokenGenerationServiceImpl;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -148,8 +149,26 @@ public class Generator {
         extractType(checkArgs(args), config);
         extractContext(args, config);
         extractEnvironment(args, config);
+        extractSecretParams(args, config);
         return config;
     }
+
+    /**
+     * Extract cli params and add to encrypted params for secret
+     * @param args from Array
+     * @param config and put it in this Map
+     */
+    protected static Map extractSecretParams(String[] args, Map config) {
+        final String SEPARATOR = "=";
+
+        for (String arg:args) {
+            if(arg.contains(SEPARATOR)) {
+                config.put(arg.split(SEPARATOR)[0], arg.split(SEPARATOR)[1]);
+            }
+        }
+        return config;
+    }
+
 
     /**
      * Extract token environment

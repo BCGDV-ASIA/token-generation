@@ -63,6 +63,7 @@ public class Token {
         dateCreated("dateCreated"),
         expiryInMilliSeconds("expiryInMilliSeconds"),
         secret("secret"),
+        assertions("assertions"),
         tokenType("tokenType"),
         context("context");
 
